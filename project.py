@@ -19,7 +19,7 @@ def play_game():
 
 def play_again():
     while True:
-        play_again = raw_input("Would you like to play the game again?\nEnter 'Y' for yes or 'N' for no: ").lower()
+        play_again = raw_input("Would you like to play again?\nEnter 'Y' for yes or 'N' for no: ").lower()
         if play_again == 'y':
             play_game()
             break
@@ -281,7 +281,7 @@ def us_history():
             for question in open("us_history_questions.txt"):
                 question_file = question.rstrip()
                 question_list.append(question_file)
-            my_questions = random.sample(question_list, 5)
+            my_questions = random.sample(question_list, 10)
 
             index0 = raw_input(my_questions[0] ).lower()
             if index0 in answers:
