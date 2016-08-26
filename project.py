@@ -164,7 +164,7 @@ def animals_questions():
     correct_answers = []
     answers = ['cheetah', 'deer', 'gorilla', 'arachrophobia', 'pride', 'tiger', 'kids', 'kid', 'hummingbird', '8', 'eight', 'ostrich', 'mare',
     'cats', 'cat', 'dog', 'dogs', 'bamboo', 'antarctica', 'elephant', 'africa', 'mane', 'true', 'ahi', 'marsupial', 'armadillo','armadillos', 'cow', 'cows',
-    'mantis shrimp' 'cretaceous', 'cretaceous period']
+    'mantis shrimp' 'cretaceous', 'cretaceous period', 'cartilage', 'shark', 'sharks', 'orca', 'orcas', 'chameleon',]
 
     with open("animals_questions.txt") as question_file:
 
