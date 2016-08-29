@@ -25,7 +25,6 @@ def math_game():
         if score >= 20:
             x = random.randint(-10,10)
             y = random.randint(-10,10)
-            y = random.randint(-10,10)
             equation = int(raw_input("What is %i + %i? " % (x,y)))
             if equation == x + y:
                 print "Correct!"
@@ -40,7 +39,6 @@ def math_game():
         if score >= 10:
             x = random.randint(1,12)
             y = random.randint(1,12)
-            y = random.randint(1,12)
             equation = int(raw_input("What is %i x %i? " % (x,y)))
             if equation == x * y:
                 print "Correct!"
@@ -51,7 +49,6 @@ def math_game():
 
         elif score >= -50:
             x = random.randint(1,10)
-            y = random.randint(1,10)
             y = random.randint(1,10)
             equation = int(raw_input("What is %i + %i? " % (x,y)))
             if equation == x + y:
@@ -103,8 +100,45 @@ def ready_for_bonus_game():
 
 
 def bonus_game():
-    pass
 # much more difficult math equations, also in 60 seconds
+    start = time.time()
+    score = 0
+    while time.time() - start < 60:
+        if score >= 20:
+            x = random.randint(-100,100)
+            y = random.randint(-100,100)
+            equation = int(raw_input("What is %i + %i? " % (x,y)))
+            if equation == x + y:
+                print "Correct!"
+                score += 1
+            elif equation == 'q':
+                break
+                sys.exit()
+            else:
+                print "Nope! Incorrect!"
+                score -= 1
+
+        if score >= 10:
+            x = random.randint(-15,15)
+            y = random.randint(-15,15)
+            equation = int(raw_input("What is %i x %i? " % (x,y)))
+            if equation == x * y:
+                print "Correct!"
+                score += 1
+            else:
+                print "Nope! Incorrect!"
+                score -= 1
+
+        elif score >= -50:
+            x = random.randint(-15,15)
+            y = random.randint(-15,15)
+            equation = int(raw_input("What is %i + %i? " % (x,y)))
+            if equation == x + y:
+                print "Correct!"
+                score += 1
+            else:
+                print "Nope! Incorrect!"
+                score -= 1
 
 
 
@@ -119,6 +153,7 @@ def main():
             break
         elif choice == 'q':
             break
+
 
 
 if __name__ == "__main__":
