@@ -274,7 +274,8 @@ def us_history():
     correct_answers = []
     answers = ['1776', 'california', 'cali', 'ca', 'great britain', 'england', 'd-day', 'silversmith', 'eisenhower', 'dwight eisenhower', '1865', 'wwII', 'ww2',
     'world war 2', 'world war II', 'illinois', 'reconstruction', 'earth day', 'right', 'abraham lincoln', 'lincoln', 'abe lincoln', 'harvey milk', 'milk',
-    'pearl harbor']
+    'pearl harbor', 'battle of gettysburg', 'gettysburg', 'thomas edison', 'edison', 'francis scott key', 'key', 'france', 'thomas jefferson', 'jefferson',
+    'john adams', 'adams', 'sherman', 'the white house', 'white house', 'richard nixon', 'nixon']
 
     with open("us_history_questions.txt") as question_file:
 
