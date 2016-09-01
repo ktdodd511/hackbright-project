@@ -13,7 +13,7 @@ def ready_to_play():
             states_game_play()
             break
         elif ready == 'n':
-            print "No? Then get ready!"
+            print "No? Then get ready!\n"
         elif ready == 'q':
             sys.exit()
         else:
@@ -31,7 +31,7 @@ def states_game_play():
 
     start = time.time()
 
-    while time.time() - start < 30:
+    while time.time() - start < 180:
         enter_state = raw_input("Enter a state: ").lower()
         if enter_state in correct_answers:
             print "You already said that one!"
@@ -49,7 +49,7 @@ def states_game_play():
         print "Wow you named all 50 states!!"
 
     elif len(correct_answers) < 50:
-        print "Time's up!\nHere are the ones you missed: "
+        print "\nTime's up!\nHere are the ones you missed:\n "
         for item in state_list:
             print item.title()
 
@@ -60,7 +60,7 @@ def main():
     while True:
         play_states_game = raw_input("Press 'I' for instructions.\nPress 'P' to play the game.\nPress 'Q' at anytime to quit the game.\n").lower()
         if play_states_game == 'i':
-            print "Name as many states as you can in 3 minutes!"
+            print "Name as many states as you can in 3 minutes!\n"
         elif play_states_game == 'p':
             ready_to_play()
             break

@@ -491,11 +491,11 @@ def coding():
 
 
 def main():
-	print "Welcome to Trivia!\nThis is a game to test your knowledge from various categories!"
+	print "Welcome to Trivia!\nThis is a game to test your knowledge from various categories!\n"
 	while True:
 		menu_options = raw_input("Please select from the following menu:\nPress 'I' for instructions\nPress 'P' to play\nPress 'Q' to quit.\n").lower()
 		if menu_options == 'i':
-		    raw_input("You will be asked to answer 10 random questions from a category of your choosing.\nPlease use one word answers.\nPlease press Enter to go back to the Main Menu.").lower()
+		    raw_input("You will be asked to answer 10 random questions from a category of your choosing.\nPlease use one word answers.\n\nPlease press Enter to go back to the Main Menu.\n").lower()
 		if menu_options == 'p':
 			play_game()
 			break
