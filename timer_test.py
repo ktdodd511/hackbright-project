@@ -74,7 +74,7 @@ def math_game():
         print "Wow! You're a math whiz! You should play again!"
         play_again()
     else:
-        print "AMAZING! You should play the bonus game...\n"
+        print "AMAZING! You should play the bonus game...\n\n"
         ready_for_bonus_game()
 
 
@@ -109,7 +109,7 @@ def bonus_game():
     start = time.time()
     score = 0
     while time.time() - start < 60:
-        if score >= 20:
+        if score >= 10:
             x = random.randint(-100,100)
             y = random.randint(-100,100)
             z = random.randint(-100,100)
@@ -124,7 +124,7 @@ def bonus_game():
                 print "Nope! Incorrect!"
                 score -= 1
 
-        if score >= 10:
+        if score >= 5:
             x = random.randint(-15,15)
             y = random.randint(-15,15)
             equation = int(raw_input("What is %i x %i? " % (x,y)))

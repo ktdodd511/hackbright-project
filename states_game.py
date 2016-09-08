@@ -32,9 +32,10 @@ def states_game_play():
     start = time.time()
 
     while time.time() - start < 180:
+        print "\nPress 'L' to see a list of what you've entered so far.\n"
         enter_state = raw_input("Enter a state: ").lower()
         if enter_state in correct_answers:
-            print "You already said that one!"
+            print "You already said that one!\n"
         elif enter_state in state_list:
             state_list.remove(enter_state)
             correct_answers.append(enter_state)
@@ -43,7 +44,7 @@ def states_game_play():
             for item in correct_answers:
                 print item.title()
         else:
-            print "That's not a state! Check your spelling!"
+            print "That's not a state! Check your spelling!\n"
 
     if len(correct_answers) == 50:
         print "Wow you named all 50 states!!"
@@ -60,7 +61,7 @@ def main():
     while True:
         play_states_game = raw_input("Press 'I' for instructions.\nPress 'P' to play the game.\nPress 'Q' at anytime to quit the game.\n").lower()
         if play_states_game == 'i':
-            print "Name as many states as you can in 3 minutes!\n"
+            print "Name as many states as you can in 3 minutes! NO PEAKING!!\nPress 'L' to see a list of what you've entered so far.\n"
         elif play_states_game == 'p':
             ready_to_play()
             break
