@@ -34,7 +34,9 @@ def bonus_game():
     print "Welcome to THE BONUS QUESTIONS!\nPress 'Q' at anytime to quit."
     question_list = []
     correct_answers = []
-    answers = ['lima', '27', '1789', 'hungary', 'spermologist', 'van gogh', 'vincent van gogh']
+    answers = ['lima', '27', '1789', 'hungary', 'spermologist', 'van gogh', 'vincent van gogh', 'krypton', 'uranus', 'a cottonmouth', 'cottonmouth',
+    'the amazon', 'amazon', 'georgia', 'atlanta, ga', 'atlanta', 'five', '5', 'seaweed', 'lactose', 'pink floyd', 'duff', 'salt', 'ivory', 'oscars',
+    'the oscars', 'diamond', 'diamonds']
 
     with open("bonus_questions.txt") as question_file:
 
@@ -92,7 +94,7 @@ def animals_questions():
     correct_answers = []
     answers = ['cheetah', 'deer', 'gorilla', 'arachrophobia', 'pride', 'tiger', 'kids', 'kid', 'hummingbird', '8', 'eight', 'ostrich', 'mare',
     'cats', 'cat', 'dog', 'dogs', 'bamboo', 'antarctica', 'elephant', 'africa', 'mane', 'true', 'ahi', 'marsupial', 'armadillo','armadillos', 'cow', 'cows',
-    'mantis shrimp' 'cretaceous', 'cretaceous period', 'cartilage', 'shark', 'sharks', 'orca', 'orcas', 'chameleon','mammals', 'mammal']
+    'mantis shrimp', 'cretaceous', 'cretaceous period', 'cartilage', 'shark', 'sharks', 'orca', 'orcas', 'chameleon','mammals', 'mammal']
 
     with open("animals_questions.txt") as question_file:
 
@@ -203,7 +205,7 @@ def us_history():
     answers = ['1776', 'california', 'cali', 'ca', 'great britain', 'england', 'd-day', 'silversmith', 'eisenhower', 'dwight eisenhower', '1865', 'wwII', 'ww2',
     'world war 2', 'world war II', 'illinois', 'reconstruction', 'earth day', 'right', 'abraham lincoln', 'lincoln', 'abe lincoln', 'harvey milk', 'milk',
     'pearl harbor', 'battle of gettysburg', 'gettysburg', 'thomas edison', 'edison', 'francis scott key', 'key', 'france', 'thomas jefferson', 'jefferson',
-    'john adams', 'adams', 'sherman', 'the white house', 'white house', 'richard nixon', 'nixon']
+    'john adams', 'adams', 'sherman', 'the white house', 'white house', 'richard nixon', 'nixon', 'donkey', 'ass']
 
     with open("us_history_questions.txt") as question_file:
 

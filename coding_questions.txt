@@ -8,3 +8,4 @@ What is the output of print str[2:] if str = 'Hello World!'?
 Which operator in Python performs exponential (power) calculation on operands?
 The output of ['Hi!'] * 4 will return an error, True or False?
 What is the function that returns the length of a list?
+Which function converts a string to an integer in Python?
