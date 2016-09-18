@@ -5,15 +5,18 @@ import random, sys
 
 def play_game():
 	print "Welcome to the game!"
-	pick_category = raw_input("Please pick from the following categories:\nPress 1 for Animals\nPress 2 for US History\nPress 3 for Coding\n").lower()
-	if pick_category == '1':
-		animals_questions()
-	elif pick_category == '2':
-	    us_history()
-	elif pick_category == '3':
-	    coding()
-        else:
-            print "Please enter a valid number."
+	while True:
+    	pick_category = raw_input("Please pick from the following categories:\nPress 1 for Animals\nPress 2 for US History\nPress 3 for Coding\n").lower()
+    	if pick_category == '1':
+    		animals_questions()
+    		break
+    	elif pick_category == '2':
+    	    us_history()
+    	    break
+    	elif pick_category == '3':
+    	    coding()
+            else:
+                print "Please enter a valid number."
 
 
 

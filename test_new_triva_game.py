@@ -5,15 +5,18 @@ import random, sys
 
 def play_game():
 	print "Welcome to the game!\n"
-	pick_category = raw_input("Please pick from the following categories:\nPress 1 for Animals\nPress 2 for US History\nPress 3 for Coding\n").lower()
-	if pick_category == '1':
-		animals_questions()
-	elif pick_category == '2':
-	    us_history()
-# 	elif pick_category == '3':
-# 	   # coding()
-        else:
-            print "Please enter a valid number."
+	while True:
+            	pick_category = raw_input("Please pick from the following categories:\nPress 1 for Animals\nPress 2 for US History\nPress 3 for Coding\n").lower()
+            	if pick_category == '1':
+            		animals_questions()
+            		break
+            	elif pick_category == '2':
+            	    us_history()
+            	    break
+            	elif pick_category == '3':
+            	    coding_questions()
+                else:
+                    print "\nPlease enter a valid number.\n\n"
 
 
 
@@ -85,13 +88,12 @@ def animals_questions():
         Question("What is the name of the phobia that involves an abnormal fear of spiders", 4, ["Ophidiophobia", "Acrophobia", "Agoraphobia", "Arachnophobia"]),
         Question("Which two animals are the most popular pets in the U.S.", 4, ["birds and cats", "dogs and birds", "snakes and cats", "dogs and cats"])
 
-
         ]
 
 
     random.shuffle(questions)   # randomizes the order of the questions
 
-    for question in questions[0:9]:
+    for question in questions[0:10]:
         question.ask()
 
 
@@ -166,15 +168,11 @@ def us_history():
         Question("In which year man stepped on the Moon for the first time", 1, ["1969", "1972", "1962", "1957"]),
         Question("The Constitutional Convention met in September 1786 in which city", 3, ["New York", "Washington, D.C.", "Philadelphia", "Boston"]),
 
-
-
-
-
         ]
 
     random.shuffle(questions)   # randomizes the order of the questions
 
-    for question in questions[0:9]:
+    for question in questions[0:10]:
         question.ask()
 
     if len(correct_history_answers) >= 9:
@@ -184,6 +182,73 @@ def us_history():
         print "Good job! You should play again!"
         play_again()
     elif len(correct_history_answers) >= 4:
+        print "Don't despair! Try again!"
+        play_again()
+    else:
+        print "Wow, you're not so bright, are you?"
+        play_again()
+
+
+
+def coding_questions():
+    correct_coding_answers = []
+
+    class Question(object):
+        def __init__(self, question, answer, options):
+            self.question = question
+            self.answer = answer
+            self.options = options
+
+        def ask(self):
+
+            print self.question + "?"
+            for n, option in enumerate(self.options):
+                print "%d) %s" % (n + 1, option)
+
+            response = int(sys.stdin.readline().strip())   # answers are integers
+            if response == self.answer:
+                print "\nCORRECT!!\n"
+                correct_coding_answers.append(response)
+            else:
+                print "\nNOPE\n"
+
+    questions = [
+        Question("Which loop should be used if you don't know the number times you need it iterated", 3, ["for", "forever", "while"]),
+        Question("Where does one 'talk' to the computer", 2, ["out loud", "terminal, or command line", "a special program you have to install"]),
+        Question("Where did the language Python get its name", 3, ["the python snake", "the creator lost a bet", "the creator really liked 'Monty Python'"]),
+        Question("What does the integer 0 return, when presented as a boolean", 1, ["False", "True", "None"]),
+        Question("What is the output of print tuple[2:] if tuple = ('abcd', 786 , 2.23, 'john', 70.2)", 4, ["('abcd', 786 , 2.23, 'john', 70.2)", "abcd", "(786, 2.23)", "(2.23, 'john', 70.2)"]),
+        Question("What is the output of print str[2:5] if str = 'Hello World!'", 3, ["llo World!", "H", "llo", "None of the above"]),
+        Question("Which operator in Python performs exponential (power) calculation on operands", 2, ["*", "**", "+=", "^"]),
+        Question("Which of the following functions convert a string to a float in python", 3, ["int(x[,base])", "long(x[,base])", "float(x)", "str(x)"]),
+        Question("Which of the following functions removes all whitespace in string", 1, ["strip()", "lower()", "max(str)", "remove()"]),
+        Question("What is the output of L[2] if L = [1,2,3]", 3, ["1", "2", "3", "None of the above"]),
+        Question("What is the output of ['Hi!'] * 4", 2, ["It will return an error", "['Hi!', 'Hi!', 'Hi!', 'Hi!']", "['Hi!']"]),
+        Question("What is the function that returns the length of a list", 1, ["len()", "length()", "list(len)", "number()"]),
+        Question("Which of the following is correct about dictionaries in Python", 4, ["They consist of key-value pairs.", "Dictionary keys can be almost any Python type, but are usually numbers or strings.",
+        "Values can be any arbitrary Python object.", "All of the above."]),
+        Question("Which of the following functions converts a string to a list in Python", 4, ["repr(str)", "eval(str)", "tuple(str)", "list(str)"]),
+        Question("Which of the following function converts a string to all lowercase", 1, ["lower()", "lstrip()", "max(str)", "min(str)"]),
+
+
+
+
+
+        ]
+
+
+    random.shuffle(questions)   # randomizes the order of the questions
+
+    for question in questions[0:10]:
+        question.ask()
+
+    if len(correct_coding_answers) >= 9:
+        print "You're a regular Einstein!"
+        # bonus_game()
+    elif len(correct_coding_answers) >= 7:
+        print "Good job! You should play again!"
+        play_again()
+    elif len(correct_coding_answers) >= 4:
         print "Don't despair! Try again!"
         play_again()
     else:
