@@ -1,9 +1,6 @@
 #!/usr/bin/env python2.7
 
 import time, random, sys
-# start_time = time.time()
-# #do something
-# end_time = time.time() - start_time
 
 
 def ready():

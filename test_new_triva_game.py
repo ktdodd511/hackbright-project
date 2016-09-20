@@ -1,6 +1,28 @@
 #!/usr/bin/python2.7
 
-import random, sys
+import main_project, random, sys
+
+
+class Question(object):
+        def __init__(self, question, answer, options):
+            self.question = question
+            self.answer = answer
+            self.options = options
+
+        def ask(self):
+
+            print self.question + "?"
+            for n, option in enumerate(self.options):
+                print "%d) %s" % (n + 1, option)
+
+            response = int(sys.stdin.readline().strip())   # answers are integers
+            if response == self.answer:
+                print "\nCORRECT!\n"
+                return True
+            else:
+                print "\nNOPE!\n"
+                return False
+
 
 
 def play_game():
@@ -27,6 +49,7 @@ def play_again():
             play_game()
             break
         elif play_again == 'n':
+            main_project.main()
             break
         else:
             print "Please enter a valid letter."
@@ -34,33 +57,12 @@ def play_again():
 
 
 def animals_questions():
-    correct_animal_answers = []
-
-    class Question(object):
-        def __init__(self, question, answer, options):
-            self.question = question
-            self.answer = answer
-            self.options = options
-
-        def ask(self):
-
-            print self.question + "?"
-            for n, option in enumerate(self.options):
-                print "%d) %s" % (n + 1, option)
-
-            response = int(sys.stdin.readline().strip())   # answers are integers
-            if response == self.answer:
-                print "\nCORRECT!!\n"
-                correct_animal_answers.append(response)
-            else:
-                print "\nNOPE\n"
-
 
     questions = [
         Question("During what period did the Tyrannosaurus Rex live", 3, ["Triassic", "Jurassic", "Cretaceous"]),
         Question("Which animal's eye is larger than its brain", 2, ["mouse", "ostrich", "elephant", "ant"]),
         Question("What animal was considered sacred to the Ancient Egyptians", 3, ["dung beetle", "dog", "cat", "swan"]),
-        Question("What is the smallest bird", 1, ["hummingbird", "goldfinch", "brown thrasher"]),
+        Question("Which is the smallest bird", 1, ["hummingbird", "goldfinch", "brown thrasher"]),
         Question("What is a group of lions called", 2, ["group", "pride", "pack", "family"]),
         Question("A doe is what kind of animal", 3, ["cat", "flamingo", "deer", "wolf"]),
         Question("What is the largest type of big cat in the world", 4, ["lion", "mountain lion", "jaguar", "tiger"]),
@@ -83,7 +85,7 @@ def animals_questions():
         Question("Sharks have bones. True or false", 2, ["True", "False"]),
         Question("What animal has teeth that are constantly growing", 3, ["hyena", "wolf", "shark", "humpback whale"]),
         Question("What is the proper name for a 'killer whale'", 2, ["shark", "orca", "blue whale"]),
-        Question("What animal can change its appearance to blend in with it's environment", 3, ["parrot", "cochroach", "chameleon"]),
+        Question("What animal can change its appearance to blend in with its environment", 3, ["parrot", "cochroach", "chameleon"]),
         Question("What class does a frog belong to", 2, ["Fish", "Amphibian", "Reptile", "Mammal"]),
         Question("What is the name of the phobia that involves an abnormal fear of spiders", 4, ["Ophidiophobia", "Acrophobia", "Agoraphobia", "Arachnophobia"]),
         Question("Which two animals are the most popular pets in the U.S.", 4, ["birds and cats", "dogs and birds", "snakes and cats", "dogs and cats"])
@@ -93,46 +95,31 @@ def animals_questions():
 
     random.shuffle(questions)   # randomizes the order of the questions
 
+    score = 0
+
     for question in questions[0:10]:
         question.ask()
+        if question == True:
+            score += 1
 
 
-    if len(correct_animal_answers) >= 9:
-        print "You're a regular Einstein!"
+    print "Your score was %i!" % (score)
+    if score >= 9:
+        print "\nYou're a genius!\n"
         # bonus_game()
-    elif len(correct_animal_answers) >= 7:
-        print "Good job! You should play again!"
+    elif score >= 6:
+        print "\nGood job! You should play again!\n"
         play_again()
-    elif len(correct_animal_answers) >= 4:
-        print "Don't despair! Try again!"
+    elif score >= 4:
+        print "\nDon't despair! Play again!\n"
         play_again()
     else:
-        print "Wow, you're not so bright, are you?"
-        # play_again()
+        print "Wow, you're not very bright, are you?"
+        play_again()
 
 
 
 def us_history():
-    correct_history_answers = []
-    class Question(object):
-        def __init__(self, question, answer, options):
-            self.question = question
-            self.answer = answer
-            self.options = options
-
-        def ask(self):
-
-            print self.question + "?"
-            for n, option in enumerate(self.options):
-                print "%d) %s" % (n + 1, option)
-
-            response = int(sys.stdin.readline().strip())   # answers are integers
-            if response == self.answer:
-                print "\nCORRECT!!\n"
-                correct_history_answers.append(response)
-            else:
-                print "\nNOPE\n"
-
 
     questions = [
         Question("What year was the Declaration of Independence signed", 3, ["1999", "1783", "1776", "1812"]),
@@ -165,52 +152,37 @@ def us_history():
         Question("Which city was known as New Amsterdam", 2, ["New Orleans", "New York", "Atlanta", "Richmond"]),
         Question("If the President and Vice President die at the same time who becomes the President", 4, ["Attorney General", "Secretary of State", "Defense Secretary",
         "Speaker of the House of Representatives"]),
-        Question("In which year man stepped on the Moon for the first time", 1, ["1969", "1972", "1962", "1957"]),
+        Question("In which year did man step on the Moon for the first time", 1, ["1969", "1972", "1962", "1957"]),
         Question("The Constitutional Convention met in September 1786 in which city", 3, ["New York", "Washington, D.C.", "Philadelphia", "Boston"]),
 
         ]
 
+
     random.shuffle(questions)   # randomizes the order of the questions
+
+    score = 0
 
     for question in questions[0:10]:
         question.ask()
+        if question == True:
+            score += 1
 
-    if len(correct_history_answers) >= 9:
-        print "You're a regular Einstein!"
+    print "Your score was %i!" % (score)
+    if score >= 9:
+        print "\nYou're a genius!\n"
         # bonus_game()
-    elif len(correct_history_answers) >= 7:
-        print "Good job! You should play again!"
+    elif score >= 6:
+        print "\nGood job! You should play again!\n"
         play_again()
-    elif len(correct_history_answers) >= 4:
-        print "Don't despair! Try again!"
+    elif score >= 4:
+        print "\nDon't despair! Play again!\n"
         play_again()
     else:
-        print "Wow, you're not so bright, are you?"
+        print "Wow, you're not very bright, are you?"
         play_again()
-
 
 
 def coding_questions():
-    correct_coding_answers = []
-
-    class Question(object):
-        def __init__(self, question, answer, options):
-            self.question = question
-            self.answer = answer
-            self.options = options
-
-        def ask(self):
-
-            print self.question + "?"
-            for n, option in enumerate(self.options):
-                print "%d) %s" % (n + 1, option)
-
-            response = int(sys.stdin.readline().strip())   # answers are integers
-            if response == self.answer:
-                print "\nCORRECT!!\n"
-                correct_coding_answers.append(response)
-            else:
-                print "\nNOPE\n"
 
     questions = [
         Question("Which loop should be used if you don't know the number times you need it iterated", 3, ["for", "forever", "while"]),
@@ -230,29 +202,30 @@ def coding_questions():
         Question("Which of the following functions converts a string to a list in Python", 4, ["repr(str)", "eval(str)", "tuple(str)", "list(str)"]),
         Question("Which of the following function converts a string to all lowercase", 1, ["lower()", "lstrip()", "max(str)", "min(str)"]),
 
-
-
-
-
         ]
 
 
     random.shuffle(questions)   # randomizes the order of the questions
 
+    score = 0
+
     for question in questions[0:10]:
         question.ask()
+        if question == True:
+            score += 1
 
-    if len(correct_coding_answers) >= 9:
-        print "You're a regular Einstein!"
+    print "Your score was %i!" % (score)
+    if score >= 9:
+        print "\nYou're a genius!\n"
         # bonus_game()
-    elif len(correct_coding_answers) >= 7:
-        print "Good job! You should play again!"
+    elif score >= 6:
+        print "\nGood job! You should play again!\n"
         play_again()
-    elif len(correct_coding_answers) >= 4:
-        print "Don't despair! Try again!"
+    elif score >= 4:
+        print "\nDon't despair! Play again!\n"
         play_again()
     else:
-        print "Wow, you're not so bright, are you?"
+        print "Wow, you're not very bright, are you?"
         play_again()
 
 
