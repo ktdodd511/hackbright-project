@@ -98,15 +98,15 @@ def animals_questions():
     score = 0
 
     for question in questions[0:10]:
-        question.ask()
-        if question == True:
+        if(question.ask()):
             score += 1
 
 
     print "Your score was %i!" % (score)
     if score >= 9:
         print "\nYou're a genius!\n"
-        # bonus_game()
+        # bonus_game() # haven't written it in yet...
+        play_again()
     elif score >= 6:
         print "\nGood job! You should play again!\n"
         play_again()
@@ -163,8 +163,7 @@ def us_history():
     score = 0
 
     for question in questions[0:10]:
-        question.ask()
-        if question == True:
+        if(question.ask()):
             score += 1
 
     print "Your score was %i!" % (score)
@@ -210,8 +209,7 @@ def coding_questions():
     score = 0
 
     for question in questions[0:10]:
-        question.ask()
-        if question == True:
+        if(question.ask()):
             score += 1
 
     print "Your score was %i!" % (score)
